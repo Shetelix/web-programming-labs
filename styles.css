@@ -249,6 +249,11 @@ body.dark .card {
   border-color: #1e293b;
 }
 
+/* шапка має власний градієнт, щоб білий текст залишався контрастним */
+body.dark .site-header {
+  background: linear-gradient(135deg, #020617, #1e3a8a);
+}
+
 body.dark .project,
 body.dark .review {
   background-color: #0f172a;
