@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Варіант dark: вмикається класом .dark на обгортці (а не системними налаштуваннями) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Власні токени дизайну (Tailwind v4 налаштовується прямо в CSS) */
 @theme {
   --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;

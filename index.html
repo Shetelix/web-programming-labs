@@ -28,10 +28,12 @@
       </div>
       <nav class="main-nav">
         <ul>
+          <li><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Перемкнути тему">🌙 Нічна тема</button></li>
           <li><a href="#about">Про мене</a></li>
           <li><a href="#education">Освіта</a></li>
           <li><a href="#experience">Досвід</a></li>
           <li><a href="#skills">Навички</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
           <li><a href="#contacts">Контакти</a></li>
         </ul>
       </nav>
@@ -113,6 +115,13 @@
       </ul>
     </section>
 
+    <section id="reviews" class="card reviews">
+      <h2>Відгуки роботодавців</h2>
+      <p class="muted">Дані завантажуються з JSONPlaceholder: <code>/posts/23/comments</code> (варіант 23).</p>
+      <p id="reviews-status" class="muted">Завантаження відгуків…</p>
+      <div id="reviews-list" class="reviews-list"></div>
+    </section>
+
   </main>
 
   <footer id="contacts" class="site-footer">
@@ -122,10 +131,39 @@
         <p>GitHub: <a href="https://github.com/Shetelix" target="_blank" rel="noopener">github.com/Shetelix</a></p>
         <p>Місто: Львів</p>
       </address>
+      <div class="sysinfo">
+        <h3>Дані з localStorage</h3>
+        <dl id="storage-list" class="storage-list"></dl>
+      </div>
       <!-- 3) Вбудований (inline) стиль: використано один раз -->
       <p style="margin-top: 16px; opacity: 0.7;"><small>&copy; 2026 Шетеля Дмитро Максимович</small></p>
     </div>
   </footer>
 
+  <!-- Модальне вікно зворотного зв'язку: з'являється через 1 хвилину -->
+  <div id="feedback-modal" class="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" id="modal-close" class="modal-close" aria-label="Закрити">&times;</button>
+      <h2 id="modal-title">Зворотний зв'язок</h2>
+      <p class="muted">Залиште повідомлення — я отримаю його на e-mail.</p>
+      <form id="feedback-form" class="feedback-form" action="https://formspree.io/f/xgakezdn" method="POST">
+        <label for="f-name">Ім'я</label>
+        <input id="f-name" type="text" name="name" placeholder="Ваше ім'я" required>
+
+        <label for="f-email">Email</label>
+        <input id="f-email" type="email" name="email" placeholder="name@example.com" required>
+
+        <label for="f-phone">Номер телефону</label>
+        <input id="f-phone" type="tel" name="phone" placeholder="+380 XX XXX XX XX" pattern="[+0-9 ()-]{10,20}" required>
+
+        <label for="f-message">Повідомлення</label>
+        <textarea id="f-message" name="message" rows="4" placeholder="Ваше повідомлення" required></textarea>
+
+        <button type="submit" class="btn">Надіслати</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
