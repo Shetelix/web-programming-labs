@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Власні токени дизайну (Tailwind v4 налаштовується прямо в CSS) */
+@theme {
+  --font-sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  --color-brand-50: #eef4ff;
+  --color-brand-500: #3b6ff5;
+  --color-brand-600: #2453e0;
+  --color-brand-900: #172554;
+}
+
+html {
+  scroll-behavior: smooth;
+}

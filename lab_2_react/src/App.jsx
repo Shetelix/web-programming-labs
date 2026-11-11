@@ -47,6 +47,7 @@ const projects = [
 const skills = [
   'SQL та MySQL',
   'HTML (семантична розмітка)',
+  'CSS та Tailwind CSS',
   'React (компоненти, props)',
   'Python (CLI-застосунки, FastAPI, SQLite)',
   'Git (локальний репозиторій, коміти, GitHub)',
@@ -55,16 +56,16 @@ const skills = [
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-slate-100 font-sans text-slate-800">
       <Header
         name="Шетеля Дмитро Максимович"
         title="Студент спеціальності 125 «Кібербезпека та захист інформації»"
         links={links}
       />
-      <main>
+      <main className="mx-auto grid max-w-5xl gap-6 px-6 py-10 md:grid-cols-2 md:items-start">
         <About />
-        <Education />
         <Experience projects={projects} />
+        <Education />
         <Skills skills={skills} />
       </main>
       <Footer
