@@ -5,36 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Резюме Шетелі Дмитра Максимовича, студента спеціальності «Кібербезпека та захист інформації»">
   <title>Резюме – Шетеля Дмитро Максимович</title>
+
+  <!-- 1) Зовнішні стилі: основна частина правил -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- 2) Внутрішні стилі: лише невелике правило для виділення ключових слів -->
+  <style>
+    .highlight {
+      background-color: #fff3c4;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Шетеля Дмитро Максимович</h1>
-    <p>Студент спеціальності 125 «Кібербезпека та захист інформації»</p>
-    <nav>
-      <ul>
-        <li><a href="#about">Про мене</a></li>
-        <li><a href="#education">Освіта</a></li>
-        <li><a href="#experience">Досвід</a></li>
-        <li><a href="#skills">Навички</a></li>
-        <li><a href="#contacts">Контакти</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1>Шетеля Дмитро Максимович</h1>
+        <p class="subtitle">Студент спеціальності 125 «Кібербезпека та захист інформації»</p>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">Про мене</a></li>
+          <li><a href="#education">Освіта</a></li>
+          <li><a href="#experience">Досвід</a></li>
+          <li><a href="#skills">Навички</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="container layout">
 
-    <section id="about">
+    <section id="about" class="card">
       <h2>Про мене</h2>
       <p>
         Студент групи <strong>КБ-209</strong> Національного університету
-        «Львівська політехніка». Цікавлюся <em>інформаційною безпекою</em>,
+        «Львівська політехніка». Цікавлюся <span class="highlight">інформаційною безпекою</span>,
         базами даних та вебтехнологіями. Шукаю можливість отримати практичний
         досвід у сфері ІТ та кібербезпеки.
       </p>
     </section>
 
-    <section id="education">
+    <section id="experience" class="card">
+      <h2>Досвід (навчальні проєкти)</h2>
+
+      <article class="project">
+        <h3>Інтернет-безпека та робота браузера</h3>
+        <p>Аналіз завантаження сайту python.org у Firefox Developer Tools.</p>
+        <ul>
+          <li>вивчив запити та статус-коди у вкладці Network;</li>
+          <li>проаналізував DNS, TCP, TLS та час відповіді сервера;</li>
+          <li>перевірив сертифікат, версію TLS, заголовки та cookie.</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <h3>Проєктування бази даних «Агенція перепису населення»</h3>
+        <p>Концептуальне проєктування реляційної БД.</p>
+        <ol>
+          <li>побудував універсальне відношення та знайшов аномалії;</li>
+          <li>визначив функціональні залежності та можливі ключі;</li>
+          <li>виконав декомпозицію до нормальної форми Бойса–Кодда (шість відношень).</li>
+        </ol>
+      </article>
+
+      <article class="project">
+        <h3>Створення реляційної бази даних у MySQL</h3>
+        <p>Реалізація спроєктованої БД засобами SQL.</p>
+        <ul>
+          <li>створив таблиці з первинними та зовнішніми ключами;</li>
+          <li>написав скрипти для внесення тестових даних і вибірки;</li>
+          <li>перевірив цілісність даних через обмеження FOREIGN KEY.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="education" class="card">
       <h2>Освіта</h2>
       <article>
         <h3>Національний університет «Львівська політехніка»</h3>
@@ -50,45 +100,12 @@
       </article>
     </section>
 
-    <section id="experience">
-      <h2>Досвід (навчальні проєкти)</h2>
-
-      <article>
-        <h3>Інтернет-безпека та робота браузера</h3>
-        <p>Аналіз завантаження сайту python.org у Firefox Developer Tools.</p>
-        <ul>
-          <li>вивчив запити та статус-коди у вкладці Network;</li>
-          <li>проаналізував DNS, TCP, TLS та час відповіді сервера;</li>
-          <li>перевірив сертифікат, версію TLS, заголовки та cookie.</li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>Проєктування бази даних «Агенція перепису населення»</h3>
-        <p>Концептуальне проєктування реляційної БД.</p>
-        <ol>
-          <li>побудував універсальне відношення та знайшов аномалії;</li>
-          <li>визначив функціональні залежності та можливі ключі;</li>
-          <li>виконав декомпозицію до нормальної форми Бойса–Кодда (шість відношень).</li>
-        </ol>
-      </article>
-
-      <article>
-        <h3>Створення реляційної бази даних у MySQL</h3>
-        <p>Реалізація спроєктованої БД засобами SQL.</p>
-        <ul>
-          <li>створив таблиці з первинними та зовнішніми ключами;</li>
-          <li>написав скрипти для внесення тестових даних і вибірки;</li>
-          <li>перевірив цілісність даних через обмеження FOREIGN KEY.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="skills">
+    <section id="skills" class="card">
       <h2>Навички</h2>
-      <ul>
+      <ul class="skills-list">
         <li>SQL та MySQL</li>
         <li>HTML (семантична розмітка)</li>
+        <li>CSS (Flexbox, Grid)</li>
         <li>React (компоненти, props)</li>
         <li>Python (CLI-застосунки, FastAPI, SQLite)</li>
         <li>Git (локальний репозиторій, коміти, GitHub)</li>
@@ -98,13 +115,16 @@
 
   </main>
 
-  <footer id="contacts">
-    <h2>Контакти</h2>
-    <address>
-      <p>GitHub: <a href="https://github.com/Shetelix" target="_blank" rel="noopener">github.com/Shetelix</a></p>
-      <p>Місто: Львів</p>
-    </address>
-    <p><small>&copy; 2026 Шетеля Дмитро Максимович</small></p>
+  <footer id="contacts" class="site-footer">
+    <div class="container">
+      <h2>Контакти</h2>
+      <address>
+        <p>GitHub: <a href="https://github.com/Shetelix" target="_blank" rel="noopener">github.com/Shetelix</a></p>
+        <p>Місто: Львів</p>
+      </address>
+      <!-- 3) Вбудований (inline) стиль: використано один раз -->
+      <p style="margin-top: 16px; opacity: 0.7;"><small>&copy; 2026 Шетеля Дмитро Максимович</small></p>
+    </div>
   </footer>
 
 </body>

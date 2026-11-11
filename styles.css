@@ -1,0 +1,232 @@
+/* ==========================================================
+   styles.css — зовнішні стилі резюме (Лабораторна робота №3)
+   Структура файлу:
+     1. Змінні та скидання
+     2. Базові стилі тегів
+     3. Шапка та навігація (Flexbox)
+     4. Основний макет (CSS Grid)
+     5. Картки та списки
+     6. Посилання: селектори атрибутів і псевдокласи
+     7. Підвал
+     8. Медіазапити
+   ========================================================== */
+
+/* ---------- 1. Змінні та скидання ---------- */
+:root {
+  --color-primary: #1e3a8a;
+  --color-accent: #2563eb;
+  --color-bg: #f1f5f9;
+  --color-card: #ffffff;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --radius: 12px;
+}
+
+/* box-sizing: border-box — ширина елемента включає padding і border */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------- 2. Базові стилі тегів (селектори тегів) ---------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.35rem;
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+/* ---------- 3. Шапка та навігація (Flexbox) ---------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;      /* центрування блоку */
+  padding: 0 24px;
+}
+
+.site-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  padding: 32px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  display: block;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+/* псевдокласи :hover та :focus-visible */
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+/* ---------- 4. Основний макет (CSS Grid) ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "about      skills"
+    "experience education";
+  align-items: start;   /* картки не розтягуються на всю висоту рядка */
+  gap: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* селектори ID */
+#about      { grid-area: about; }
+#experience { grid-area: experience; }
+#education  { grid-area: education; }
+#skills     { grid-area: skills; }
+
+/* ---------- 5. Картки та списки (селектори класів) ---------- */
+.card {
+  background-color: var(--color-card);
+  margin: 0;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.project {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-left: 4px solid var(--color-accent);
+  background-color: #f8fafc;
+  border-radius: 0 8px 8px 0;
+}
+
+/* псевдоклас :last-child — прибираємо зайвий відступ в останнього проєкту */
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  padding: 4px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background-color: #eff6ff;
+  font-size: 0.9rem;
+}
+
+/* псевдоклас :nth-child — кожна друга навичка іншого кольору */
+.skills-list li:nth-child(even) {
+  background-color: #e0e7ff;
+}
+
+/* ---------- 6. Посилання ---------- */
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* селектор атрибута: зовнішні посилання, що відкриваються в новій вкладці */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
+
+/* ---------- 7. Підвал ---------- */
+.site-footer {
+  padding: 32px 0;
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.site-footer h2 {
+  color: #fff;
+}
+
+.site-footer a {
+  color: #93c5fd;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ---------- 8. Медіазапит: вузький екран ---------- */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* сітка перебудовується в одну колонку */
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "about"
+      "skills"
+      "experience"
+      "education";
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
